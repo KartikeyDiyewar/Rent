@@ -9,7 +9,8 @@ import { Padding } from '@mui/icons-material';
 const App =() => {
   const[count,setCount] = useState(0);
   const[bill,setBill] = useState(0);
-  const[runit,setRunit] = useState(0);
+  const[rpunit,setRpunit] = useState(0);
+  const[rcunit,setRcunit] = useState(0);
   const[unit,setUnit] = useState(0);
   return (
     <div style={{display:"flex",flexWrap:"wrap", justifyContent:"center",alignItems:"center"}}>
@@ -23,11 +24,13 @@ const App =() => {
     <div onChange={(e)=>setUnit(e.target.value)}>
     <BasicTextField text='Enter Total Units'/>
     </div>
-    <div onChange={(e)=>setRunit(e.target.value)}>
-    <BasicTextField text='Enter Submeter Units'/>
+    <div onChange={(e)=>setRpunit(e.target.value)}>
+    <BasicTextField text='Enter Previous Submeter Reading'/>
     </div>
-    
-    <BasicButton text='calculate' val = {(bill/unit)*runit} count = {count} setCount = {setCount}/>
+    <div onChange={(e)=>setRcunit(e.target.value)}>
+    <BasicTextField text='Enter Current Submeter Reading'/>
+    </div>
+    <BasicButton text='calculate' val = {(bill/unit)*(rpunit-rcunit)} count = {count} setCount = {setCount}/>
     </div>
     </div>
     <BasicHeading text={`Your tenant's bill is: ₹‎${count}`}/>
