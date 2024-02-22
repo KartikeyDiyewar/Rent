@@ -1,10 +1,9 @@
 import React from 'react';
-import SearchAppBar from './Components/SearchAppBar'
 import BasicTextField from './Components/BasicTextFeild';
 import BasicHeading from './Components/BasicHeading';
 import BasicButton from './Components/BasicButton';
-import { useState, useEffect } from 'react';
-import { Padding } from '@mui/icons-material';
+import { useState } from 'react';
+
 
 const App =() => {
   const[count,setCount] = useState(0);
@@ -13,9 +12,11 @@ const App =() => {
   const[rcunit,setRcunit] = useState(0);
   const[unit,setUnit] = useState(0);
   return (
-    <div style={{display:"flex",flexWrap:"wrap", justifyContent:"center",alignItems:"center"}}>
+    <div style={{display:"flex", flexWrap:"wrap", justifyContent:"center",alignItems:"center"}}>
     <div style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
-    {/* <SearchAppBar/> */}
+    <div style={{borderRadius:"8px",backgroundColor:"antiquewhite",padding:"10px",margin:"10px"}}>
+    <BasicHeading text="Rent Calculaor App"/>
+    </div>
     <div style={{border:"0.5px solid",borderRadius:"8px",margin:"20px",padding:"10px"}}>
     <BasicHeading text='Please enter the bill details:'/>
     <div onChange={(e)=>setBill(e.target.value)}>
@@ -30,8 +31,10 @@ const App =() => {
     <div onChange={(e)=>setRcunit(e.target.value)}>
     <BasicTextField text='Enter Current Submeter Reading'/>
     </div>
-    <BasicButton text='calculate' val = {(bill/unit)*(rpunit-rcunit)} count = {count} setCount = {setCount}/>
+    <BasicButton text='calculate' diff={(unit)-(rcunit-rpunit)} val = {(bill/unit)*(rcunit-rpunit)} count = {count} setCount = {setCount}/>
     </div>
+    
+    <BasicHeading text={`Submeter Reading: ${(rcunit-rpunit)}`}/>
     </div>
     <BasicHeading text={`Your tenant's bill is: ₹‎${count}`}/>
     
