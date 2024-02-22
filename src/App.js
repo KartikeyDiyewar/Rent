@@ -15,7 +15,7 @@ const App =() => {
     <div style={{display:"flex", flexWrap:"wrap", justifyContent:"center",alignItems:"center"}}>
     <div style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
     <div style={{borderRadius:"8px",backgroundColor:"antiquewhite",padding:"10px",margin:"10px"}}>
-    <BasicHeading text="Rent Calculaor App"/>
+    <BasicHeading text="Tenant's Electric Bill Calculator"/>
     </div>
     <div style={{border:"0.5px solid",borderRadius:"8px",margin:"20px",padding:"10px"}}>
     <BasicHeading text='Please enter the bill details:'/>
@@ -34,7 +34,7 @@ const App =() => {
     <BasicButton text='calculate' diff={(unit)-(rcunit-rpunit)} val = {(bill/unit)*(rcunit-rpunit)} count = {count} setCount = {setCount}/>
     </div>
     
-    <BasicHeading text={`Submeter Reading: ${(rcunit-rpunit)}`}/>
+    <BasicHeading text={`Submeter Units: ${(rcunit-rpunit)}`}/>
     </div>
     <BasicHeading text={`Your tenant's bill is: ₹‎${count}`}/>
     
